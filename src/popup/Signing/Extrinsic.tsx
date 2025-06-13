@@ -165,7 +165,7 @@ function Extrinsic({
 
   return (
     <div>
-      <div className="mx-4">
+      <div>
         {signatureResponse?.methodName && (
           <div className="font-bold">
             {signatureResponse.methodName.split("(")[0]}

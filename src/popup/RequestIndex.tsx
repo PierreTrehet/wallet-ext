@@ -46,7 +46,7 @@ function RequestIndex({
           icon={faArrowAltCircleLeft as IconProp}
           onClick={prevClick}
         />
-        <div className="mx-4">
+        <div>
           <span>{index + 1}</span>
           <span>/{totalItems}</span>
         </div>
