@@ -63,7 +63,7 @@ export const Signing = ({ requests }: Props): JSX.Element => {
           />
         )}
       </div>
-      <div className="flex flex-col align-middle justify-center request-page">
+      <div className="uik-modal__popup mx-4">
         <Account
           account={requests[requestIndex].account}
           showCopyAddress={true}
