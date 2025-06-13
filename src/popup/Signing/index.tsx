@@ -7,16 +7,13 @@ import type { SignerPayloadJSON } from "@polkadot/types/types";
 import { SigningRequest } from "../../extension-base/background/types";
 import Request from "./Request";
 import RequestIndex from "../RequestIndex";
-import Account from "../Accounts/Account";
 import { Loading } from "../components/Loading";
-import { useTheme } from "../context/ThemeContext";
 
 interface Props {
   requests: SigningRequest[];
 }
 
 export const Signing = ({ requests }: Props): JSX.Element => {
-  const { isDarkMode } = useTheme();
   const [requestIndex, setRequestIndex] = useState(0);
   const [isTransaction, setIsTransaction] = useState(false);
 
@@ -54,7 +51,7 @@ export const Signing = ({ requests }: Props): JSX.Element => {
 
   return requests.length && requests[requestIndex] ? (
     <>
-      <div className={`text-center text-lg font-bold ${isDarkMode ? "text--dark-mode" : "text-black"}`}>
+      <div className="text-center text-lg font-bold text-black">
         <span>{isTransaction ? "Transaction" : "Sign message"}</span>
         {requests.length > 1 && (
           <RequestIndex
@@ -65,12 +62,7 @@ export const Signing = ({ requests }: Props): JSX.Element => {
           />
         )}
       </div>
-      <div className="uik-modal__popup request-page">
-        <Account
-          account={requests[requestIndex].account}
-          showCopyAddress={true}
-          className="account-box-padding"
-        />
+      <div className="uik-modal__body request-page">
         <Request
           account={requests[requestIndex].account}
           buttonText={isTransaction ? "Sign transaction" : "Sign message"}

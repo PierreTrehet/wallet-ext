@@ -165,7 +165,7 @@ function Extrinsic({
 
   return (
     <div>
-      <div className="uik-modal__popup">
+      <div className="uik-modal__body mx-4">
         {signatureResponse?.methodName && (
           <div className="font-bold">
             {signatureResponse.methodName.split("(")[0]}
@@ -176,7 +176,7 @@ function Extrinsic({
           text={showDetails ? "Hide details" : "Show details"}
           size="small"
           onClick={() => setShowDetails(!showDetails)}
-          className="mt-2"
+          className="uik-button--small mt-2"
         />
       </div>
       {showDetails && (
