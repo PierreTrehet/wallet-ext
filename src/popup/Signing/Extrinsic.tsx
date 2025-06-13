@@ -165,7 +165,7 @@ function Extrinsic({
 
   return (
     <div>
-      <div className="uik-modal__body mx-4">
+      <div className="uik-modal__body">
         {signatureResponse?.methodName && (
           <div className="font-bold">
             {signatureResponse.methodName.split("(")[0]}
