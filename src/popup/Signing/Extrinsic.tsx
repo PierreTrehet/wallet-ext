@@ -165,7 +165,7 @@ function Extrinsic({
 
   return (
     <div>
-      <div className="confirm-popup__container">
+      <div className="mx-4">
         {signatureResponse?.methodName && (
           <div className="font-bold">
             {signatureResponse.methodName.split("(")[0]}

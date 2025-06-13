@@ -7,6 +7,7 @@ import type { SignerPayloadJSON } from "@polkadot/types/types";
 import { SigningRequest } from "../../extension-base/background/types";
 import Request from "./Request";
 import RequestIndex from "../RequestIndex";
+import Account from "../Accounts/Account";
 import { Loading } from "../components/Loading";
 
 interface Props {
@@ -62,7 +63,12 @@ export const Signing = ({ requests }: Props): JSX.Element => {
           />
         )}
       </div>
-      <div className="confirm-popup__container request-page">
+      <div className="flex flex-col align-middle justify-center request-page">
+        <Account
+          account={requests[requestIndex].account}
+          showCopyAddress={true}
+          className="account-box-padding"
+        />
         <Request
           account={requests[requestIndex].account}
           buttonText={isTransaction ? "Sign transaction" : "Sign message"}
