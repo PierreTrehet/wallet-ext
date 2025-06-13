@@ -62,7 +62,7 @@ export const Signing = ({ requests }: Props): JSX.Element => {
           />
         )}
       </div>
-      <div className="uik-modal__body request-page">
+      <div className="confirm-popup__container request-page">
         <Request
           account={requests[requestIndex].account}
           buttonText={isTransaction ? "Sign transaction" : "Sign message"}

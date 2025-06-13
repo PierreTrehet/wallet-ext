@@ -165,7 +165,7 @@ function Extrinsic({
 
   return (
     <div>
-      <div className="uik-modal__body">
+      <div className="confirm-popup__container">
         {signatureResponse?.methodName && (
           <div className="font-bold">
             {signatureResponse.methodName.split("(")[0]}
