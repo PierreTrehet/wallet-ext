@@ -17,6 +17,7 @@ import { PORT_EXTENSION } from "../../extension-base/defaults";
 import { useTheme } from "../context/ThemeContext";
 import { transactionUtils } from "@reef-chain/util-lib";
 import { ProviderContext } from "../contexts";
+import Uik from "@reef-chain/ui-kit";
 
 interface Decoded {
   args: AnyJson | null;
@@ -160,9 +161,27 @@ function Extrinsic({
   }, [provider])
 
   const { isDarkMode } = useTheme();
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
-    <table className={`flex overflow-x-scroll ${isDarkMode ? "" : "text-black"} extrinsic-data-table`}>
-      <tbody>
+    <div>
+      <div>
+        {signatureResponse?.methodName && (
+          <div className="font-bold">
+            {signatureResponse.methodName.split("(")[0]}
+          </div>
+        )}
+        {signatureResponse?.info && <div>{signatureResponse.info}</div>}
+        <Uik.Button
+          text={showDetails ? "Hide details" : "Show details"}
+          size="small"
+          onClick={() => setShowDetails(!showDetails)}
+          className="uik-button--small mt-2"
+        />
+      </div>
+      {showDetails && (
+        <table className={`flex overflow-x-scroll ${isDarkMode ? "" : "text-black"} extrinsic-data-table`}>
+          <tbody>
         {url !== PORT_EXTENSION && (
           <tr>
             <td className="extrinsic-table-label">From</td>
@@ -218,7 +237,9 @@ function Extrinsic({
           <td className="pl-4">{mortalityAsString(era, blockNumber)}</td>
         </tr>
       </tbody>
-    </table>
+        </table>
+      )}
+    </div>
   );
 }
 
